@@ -20,7 +20,7 @@ def get_details(slack_name: str, track: str):
         return {"error": "Both slack_name and track parameters are required."}, 400
     
     current_day = datetime.now().strftime("%A")
-    utc_time = utc_time = datetime.utcnow() + timedelta(minutes=2)
+    utc_time = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
     
     details = {
         
