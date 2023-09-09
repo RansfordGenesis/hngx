@@ -15,7 +15,10 @@ app.add_middleware(
 
 
 @app.get("/")
-def get_details(slack_name: str, track: str):
+def get_details(slack_name: str = None, track: str = None):
+    if slack_name is None or track is None:
+        return {"error": "Both slack_name and track parameters are required."}, 400
+    
     current_day = datetime.now().strftime("%A")
     utc_time = datetime.now() + timedelta(minutes=2)
     
