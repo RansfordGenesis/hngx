@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],)   
 
 
-@app.get("/")
+@app.get("/api/")
 def get_details(slack_name: str, track: str):
     if not slack_name or not track:
         return {"error": "Both slack_name and track parameters are required."}, 400
